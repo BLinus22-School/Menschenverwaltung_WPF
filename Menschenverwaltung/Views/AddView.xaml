@@ -23,15 +23,20 @@
                 <Label Grid.Row="0" Margin="5" Content="Vorname" />
                 <Label Grid.Row="1" Margin="5" Content="Nachname" />
                 <Label Grid.Row="2" Margin="5" Content="Alter" />
-                <Label Grid.Row="3" Margin="5" Content="Familienstand" IsEnabled="False" />
+                <Label Grid.Row="3" Margin="5" Content="Familienstand" />
 
-                <TextBox Grid.Column="1" Grid.Row="0" Margin="5" />
-                <TextBox Grid.Column="1" Grid.Row="1" Margin="5" />
-                <TextBox Grid.Column="1" Grid.Row="2" Margin="5" />
-                <TextBox Grid.Column="1" Grid.Row="3" Margin="5" />
+                <TextBox Grid.Column="1" Grid.Row="0" Margin="5"
+                         Text="{Binding Vorname, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="1" Grid.Row="1" Margin="5"
+                         Text="{Binding Nachname, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="1" Grid.Row="2" Margin="5"
+                         Text="{Binding Alter, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Column="1" Grid.Row="3" Margin="5" IsEnabled="False"
+                         Text="{Binding Familienstand, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </GroupBox>
 
-        <Button Content="Mensch erschaffen" Margin="5,20,5,5" />
+        <Button Content="Mensch erschaffen" Margin="10,20,10,5"
+                Command="{Binding MenschErschaffenCommand}"/>
     </StackPanel>
 </UserControl>

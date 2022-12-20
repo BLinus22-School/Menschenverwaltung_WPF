@@ -11,13 +11,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <ContentControl Grid.Column="0" prism:RegionManager.RegionName="MenuRegion" />
+        <ContentControl Grid.Column="0" Margin="5" prism:RegionManager.RegionName="MenuRegion" />
         
-        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="MainRegion" />
+        <ContentControl Grid.Column="1" Margin="5" prism:RegionManager.RegionName="MainRegion" />
 
-        <ContentControl Grid.Column="2" prism:RegionManager.RegionName="DisplayRegion" />
+        <ContentControl Grid.Column="2" Margin="5" prism:RegionManager.RegionName="DisplayRegion" />
     </Grid>
 </Window>

@@ -7,6 +7,40 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label Content="Hallo Welt!" FontSize="20" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <ListBox Width="300" Margin="5" Grid.Row="0"
+                 ItemsSource="{Binding Menschen.MenschenListe, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                 SelectedItem="{Binding Menschen.SelectedMensch}"/>
+
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Content="Vorname" />
+            <Label Grid.Row="1" Content="Nachname" />
+            <Label Grid.Row="2" Content="Alter" />
+            <Label Grid.Row="3" Content="Familienstand" />
+
+            <Label Grid.Column="1" Grid.Row="0"
+                         Content="{Binding Menschen.SelectedMensch.Vorname, UpdateSourceTrigger=PropertyChanged}" />
+            <Label Grid.Column="1" Grid.Row="1"
+                         Content="{Binding Menschen.SelectedMensch.Nachname, UpdateSourceTrigger=PropertyChanged}" />
+            <Label Grid.Column="1" Grid.Row="2"
+                         Content="{Binding Menschen.SelectedMensch.Alter, UpdateSourceTrigger=PropertyChanged}" />
+            <Label Grid.Column="1" Grid.Row="3"
+                         Content="{Binding Menschen.SelectedMensch.Familienstand, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
     </Grid>
 </UserControl>

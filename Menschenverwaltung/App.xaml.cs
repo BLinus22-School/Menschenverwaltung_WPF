@@ -20,6 +20,8 @@ namespace Menschenverwaltung
             containerRegistry.RegisterForNavigation<EditView>("EditView");
             containerRegistry.RegisterForNavigation<DisplayView>("DisplayView");
 
+            Container.Resolve<Menschen>();
+
             // register other needed services here
         }
 
