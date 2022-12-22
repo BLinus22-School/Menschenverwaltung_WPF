@@ -10,9 +10,9 @@ namespace Menschenverwaltung
     {
         private bool einwilligung;
 
-        public Kind(string vorname, string nachname, int alter, bool einwilligung) : base(vorname, nachname, alter)
+        public Kind(string vorname, string nachname, int alter) : base(vorname, nachname, alter)
         {
-            this.Einwilligung = einwilligung;
+            this.Einwilligung = false;
         }
 
         public bool Einwilligung

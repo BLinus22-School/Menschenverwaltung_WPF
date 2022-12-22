@@ -11,10 +11,20 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
+
         <ListBox Width="300" Margin="5" Grid.Row="0"
                  ItemsSource="{Binding Menschen.MenschenListe, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                 SelectedItem="{Binding Menschen.SelectedMensch}"/>
+                 SelectedItem="{Binding Menschen.SelectedMensch}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Vorname}" />
+                        <TextBlock Text=" " />
+                        <TextBlock Text="{Binding Nachname}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <Grid Grid.Row="1" Margin="5">
             <Grid.ColumnDefinitions>
@@ -33,13 +43,13 @@
             <Label Grid.Row="2" Content="Alter" />
             <Label Grid.Row="3" Content="Familienstand" />
 
-            <Label Grid.Column="1" Grid.Row="0"
+            <Label Grid.Column="1" Grid.Row="0" FontWeight="Bold"
                          Content="{Binding Menschen.SelectedMensch.Vorname, UpdateSourceTrigger=PropertyChanged}" />
-            <Label Grid.Column="1" Grid.Row="1"
+            <Label Grid.Column="1" Grid.Row="1" FontWeight="Bold"
                          Content="{Binding Menschen.SelectedMensch.Nachname, UpdateSourceTrigger=PropertyChanged}" />
-            <Label Grid.Column="1" Grid.Row="2"
+            <Label Grid.Column="1" Grid.Row="2" FontWeight="Bold"
                          Content="{Binding Menschen.SelectedMensch.Alter, UpdateSourceTrigger=PropertyChanged}" />
-            <Label Grid.Column="1" Grid.Row="3"
+            <Label Grid.Column="1" Grid.Row="3" FontWeight="Bold"
                          Content="{Binding Menschen.SelectedMensch.Familienstand, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
     </Grid>

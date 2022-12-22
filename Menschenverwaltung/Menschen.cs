@@ -1,6 +1,8 @@
 ﻿using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +11,10 @@ namespace Menschenverwaltung
 {
     public class Menschen : BindableBase
     {
-        private List<Mensch> menschenListe = new List<Mensch>();
+        //TODO: Die automatische Aktualisierung der ListBox funktioniert aktuell nicht
+        private ObservableCollection<Mensch> menschenListe = new ObservableCollection<Mensch>();
 
-        public List<Mensch> MenschenListe
+        public ObservableCollection<Mensch> MenschenListe
         {
             get { return this.menschenListe; }
             set
@@ -33,7 +36,8 @@ namespace Menschenverwaltung
 
         public Menschen()
         {
-
+            //MenschenListe.Add(new Mensch("Test", "Herbert", 23));
+            //MenschenListe.Add(new Mensch("Hubert", "Frederik", 18));
         }
 
 

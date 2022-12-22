@@ -31,8 +31,8 @@ namespace Menschenverwaltung.ViewModels
             }
         }
 
-        private int alter;
-        public int Alter
+        private string alter;
+        public string Alter
         {
             get { return this.alter; }
             set
@@ -73,25 +73,31 @@ namespace Menschenverwaltung.ViewModels
         private void OnMenschErschaffen()
         {
             var mindestAlter = Mensch.Volljaehrigkeit;
+            var alterValid = int.TryParse(this.Alter, out int alter);
 
-            Mensch neuerMensch;
-
-            if (alter >= mindestAlter)
+            if (alterValid)
             {
-                neuerMensch = new Erwachsener(this.Vorname, this.Nachname, this.Alter);
+                Mensch neuerMensch;
+
+                if (alter >= mindestAlter)
+                {
+                    neuerMensch = new Erwachsener(this.Vorname, this.Nachname, alter);
+                }
+                else
+                {
+                    neuerMensch = new Kind(this.Vorname, this.Nachname, alter);
+                }
+
+                this.Menschen.MenschenListe.Add(neuerMensch);
+
+                this.Alter = "";
+                this.Vorname = "";
+                this.Nachname = "";
             }
             else
             {
-                neuerMensch = new Kind(this.Vorname, this.Nachname, this.Alter, false);
+                MessageBox.Show("Das angegebene Alter ist keine Zahl");
             }
-
-            this.Menschen.MenschenListe.Add(neuerMensch);
-
-            this.Alter = 0;
-            this.Vorname = "";
-            this.Nachname = "";
-
-            //MessageBox.Show("MenschErschaffen wurde nich nicht implementiert.");
         }
     }
 }
